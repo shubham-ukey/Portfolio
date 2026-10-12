@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-navy font-sans text-ink antialiased;
+    overflow-x: hidden;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+    outline-style: solid;
+  }
+  ::selection {
+    background: rgba(59, 130, 246, 0.4);
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(41, 56, 79, 0.45) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(41, 56, 79, 0.45) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse at 30% 20%, #000 20%, transparent 75%);
+    mask-image: radial-gradient(ellipse at 30% 20%, #000 20%, transparent 75%);
+  }
+  .chip {
+    @apply rounded-md border border-line bg-panel px-2.5 py-1 font-mono text-xs text-ink;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
